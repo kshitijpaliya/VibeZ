@@ -77,21 +77,18 @@ function Events({ user }) {
     const amount = price * quant;
 
     try {
-      const response = await fetch(
-        "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/purchase",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            username: user, // Ensure username is defined
-            id,
-            quant,
-            amount,
-            payment_date,
-            payment_time,
-          }),
-        }
-      );
+      const response = await fetch("http://localhost:5000/purchase", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: user, // Ensure username is defined
+          id,
+          quant,
+          amount,
+          payment_date,
+          payment_time,
+        }),
+      });
 
       if (response.ok) {
         const data = await response.json();
@@ -110,16 +107,13 @@ function Events({ user }) {
 
   const handleFilter = async () => {
     try {
-      const response = await fetch(
-        "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/filter",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ city, date }),
-        }
-      );
+      const response = await fetch("http://localhost:5000/filter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ city, date }),
+      });
       const data = await response.json();
       setEvent(data);
     } catch (error) {

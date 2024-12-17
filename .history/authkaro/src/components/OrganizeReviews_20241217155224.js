@@ -6,9 +6,7 @@ function OrganizeReviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch(
-          "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/reviews"
-        );
+        const response = await fetch("http://localhost:5000/reviews");
         if (!response.ok) {
           throw new Error("Server Error");
         }

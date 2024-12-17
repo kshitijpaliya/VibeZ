@@ -23,16 +23,13 @@ function OrganiserReview({ user }) {
     console.log("Payload being sent:", payload);
 
     try {
-      const response = await fetch(
-        "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/reviewsAdd",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
+      const response = await fetch("http://localhost:5000/reviewsAdd", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
 
       const data = await response.json();
 

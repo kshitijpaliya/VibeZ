@@ -9,16 +9,13 @@ function PurchaseHistory({ user }) {
 
   const fetchPurchaseHistory = async () => {
     try {
-      const response = await fetch(
-        "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/purchasehistory",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ username: user }),
-        }
-      );
+      const response = await fetch("http://localhost:5000/purchasehistory", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: user }),
+      });
       let data = await response.json();
       console.log(data);
       data.sort((a, b) => b.payment_id - a.payment_id);

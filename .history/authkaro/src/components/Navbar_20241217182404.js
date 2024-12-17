@@ -13,9 +13,7 @@ function Navbar({ user }) {
   useEffect(() => {
     const fetchPaymentCount = async () => {
       try {
-        const response = await fetch(
-          `http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/history/${user}`
-        );
+        const response = await fetch(`http://localhost:5000/history/${user}`);
         const data = await response.json();
         console.log(data);
         setPaymentCount(data.count);

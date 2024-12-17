@@ -12,14 +12,11 @@ function SignUp({ logIn }) {
     e.preventDefault();
     const name = first + " " + last;
     try {
-      const response = await fetch(
-        "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/signup",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ username, password, email, phoneno, name }),
-        }
-      );
+      const response = await fetch("http://localhost:5000/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password, email, phoneno, name }),
+      });
       const data = await response.json();
       console.log(data);
       if (data.success) {

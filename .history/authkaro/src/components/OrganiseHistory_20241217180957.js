@@ -9,7 +9,7 @@ export default function OrganiseHistory({ user }) {
     const fetchOrganisingHistory = async () => {
       try {
         const response = await fetch(
-          `http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/organisehistory/${user}`
+          `http://localhost:5000/organisehistory/${user}`
         );
         const data = await response.json();
         setOrganisingHistory(data);

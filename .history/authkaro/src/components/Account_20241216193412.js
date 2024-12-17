@@ -11,7 +11,7 @@ function Account({ userID }) {
     try {
       console.log("Fetching user for userID:", userID); // Debugging
       const response = await fetch(
-        `http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/user?username=${userID}`, // Updated
+        `http://localhost:5000/user?username=${userID}`, // Updated
         {
           method: "GET",
           headers: {

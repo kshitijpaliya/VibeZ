@@ -19,9 +19,7 @@ function EventsHome({ user }) {
 
   const fetchEvents = async () => {
     try {
-      const response = await fetch(
-        "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/events"
-      );
+      const response = await fetch("http://localhost:5000/events");
       const data = await response.json();
       setEvents(data);
     } catch (error) {

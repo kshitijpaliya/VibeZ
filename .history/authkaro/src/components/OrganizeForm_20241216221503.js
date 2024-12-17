@@ -24,24 +24,21 @@ function OrganizeForm({ user }) {
     e.preventDefault();
     console.log("Current User (organiserid):", user); // Debugging line
 
-    const inserted = await fetch(
-      "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/host",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          location,
-          city,
-          price,
-          date,
-          organiserid,
-          totalTickets,
-        }),
-      }
-    );
+    const inserted = await fetch("http://localhost:5000/host", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        location,
+        city,
+        price,
+        date,
+        organiserid,
+        totalTickets,
+      }),
+    });
     const data = await inserted.json();
 
     console.log("Inserted:", inserted);
