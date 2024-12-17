@@ -78,7 +78,7 @@ function Events({ user }) {
 
     try {
       const response = await fetch(
-        "https://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/purchase",
+        "http://cold-cassandra-backendsforpracticealltheverybestrukja-1e03db87.koyeb.app/purchase",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
